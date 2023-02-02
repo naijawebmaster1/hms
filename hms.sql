@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 04, 2022 at 03:34 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Host: localhost:8889
+-- Generation Time: Feb 02, 2023 at 09:25 AM
+-- Server version: 5.7.34
+-- PHP Version: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laravel-multi-auth`
+-- Database: `health-monitoring-system`
 --
 
 -- --------------------------------------------------------
@@ -34,7 +34,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -91,16 +91,16 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'users-create', 'Create Users', 'Create Users', '2022-09-03 22:16:54', '2022-09-03 22:16:54'),
-(2, 'users-read', 'Read Users', 'Read Users', '2022-09-03 22:16:54', '2022-09-03 22:16:54'),
-(3, 'users-update', 'Update Users', 'Update Users', '2022-09-03 22:16:54', '2022-09-03 22:16:54'),
-(4, 'users-delete', 'Delete Users', 'Delete Users', '2022-09-03 22:16:54', '2022-09-03 22:16:54'),
-(5, 'payments-create', 'Create Payments', 'Create Payments', '2022-09-03 22:16:54', '2022-09-03 22:16:54'),
-(6, 'payments-read', 'Read Payments', 'Read Payments', '2022-09-03 22:16:54', '2022-09-03 22:16:54'),
-(7, 'payments-update', 'Update Payments', 'Update Payments', '2022-09-03 22:16:54', '2022-09-03 22:16:54'),
-(8, 'payments-delete', 'Delete Payments', 'Delete Payments', '2022-09-03 22:16:54', '2022-09-03 22:16:54'),
-(9, 'profile-read', 'Read Profile', 'Read Profile', '2022-09-03 22:16:54', '2022-09-03 22:16:54'),
-(10, 'profile-update', 'Update Profile', 'Update Profile', '2022-09-03 22:16:54', '2022-09-03 22:16:54');
+(1, 'users-create', 'Create Users', 'Create Users', '2023-01-17 20:09:47', '2023-01-17 20:09:47'),
+(2, 'users-read', 'Read Users', 'Read Users', '2023-01-17 20:09:47', '2023-01-17 20:09:47'),
+(3, 'users-update', 'Update Users', 'Update Users', '2023-01-17 20:09:47', '2023-01-17 20:09:47'),
+(4, 'users-delete', 'Delete Users', 'Delete Users', '2023-01-17 20:09:47', '2023-01-17 20:09:47'),
+(5, 'payments-create', 'Create Payments', 'Create Payments', '2023-01-17 20:09:47', '2023-01-17 20:09:47'),
+(6, 'payments-read', 'Read Payments', 'Read Payments', '2023-01-17 20:09:47', '2023-01-17 20:09:47'),
+(7, 'payments-update', 'Update Payments', 'Update Payments', '2023-01-17 20:09:47', '2023-01-17 20:09:47'),
+(8, 'payments-delete', 'Delete Payments', 'Delete Payments', '2023-01-17 20:09:47', '2023-01-17 20:09:47'),
+(9, 'profile-read', 'Read Profile', 'Read Profile', '2023-01-17 20:09:47', '2023-01-17 20:09:47'),
+(10, 'profile-update', 'Update Profile', 'Update Profile', '2023-01-17 20:09:47', '2023-01-17 20:09:47');
 
 -- --------------------------------------------------------
 
@@ -119,67 +119,17 @@ CREATE TABLE `permission_role` (
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 1),
-(1, 2),
-(1, 3),
-(1, 4),
-(1, 5),
-(1, 6),
 (2, 1),
-(2, 2),
-(2, 3),
-(2, 4),
-(2, 5),
-(2, 6),
 (3, 1),
-(3, 2),
-(3, 3),
-(3, 4),
-(3, 5),
-(3, 6),
 (4, 1),
-(4, 2),
-(4, 3),
-(4, 4),
-(4, 5),
-(4, 6),
 (5, 1),
-(5, 2),
-(5, 3),
-(5, 4),
-(5, 5),
-(5, 6),
 (6, 1),
-(6, 2),
-(6, 3),
-(6, 4),
-(6, 5),
-(6, 6),
 (7, 1),
-(7, 2),
-(7, 3),
-(7, 4),
-(7, 5),
-(7, 6),
 (8, 1),
-(8, 2),
-(8, 3),
-(8, 4),
-(8, 5),
-(8, 6),
 (9, 1),
-(9, 2),
-(9, 3),
-(9, 4),
-(9, 5),
-(9, 6),
-(9, 7),
 (10, 1),
-(10, 2),
-(10, 3),
-(10, 4),
-(10, 5),
-(10, 6),
-(10, 7);
+(9, 2),
+(10, 2);
 
 -- --------------------------------------------------------
 
@@ -213,13 +163,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Admin', 'Admin', '2022-09-03 22:16:54', '2022-09-03 22:16:54'),
-(2, 'library', 'Library', 'Library', '2022-09-03 22:16:55', '2022-09-03 22:16:55'),
-(3, 'hostel', 'Hostel', 'Hostel', '2022-09-03 22:16:55', '2022-09-03 22:16:55'),
-(4, 'bursar', 'Bursar', 'Bursar', '2022-09-03 22:16:55', '2022-09-03 22:16:55'),
-(5, 'faculty', 'Faculty', 'Faculty', '2022-09-03 22:16:55', '2022-09-03 22:16:55'),
-(6, 'laboratory', 'Laboratory', 'Laboratory', '2022-09-03 22:16:55', '2022-09-03 22:16:55'),
-(7, 'user', 'User', 'User', '2022-09-03 22:16:55', '2022-09-03 22:16:55');
+(1, 'admin', 'Admin', 'Admin', '2023-01-17 20:09:47', '2023-01-17 20:09:47'),
+(2, 'user', 'User', 'User', '2023-01-17 20:09:47', '2023-01-17 20:09:47');
 
 -- --------------------------------------------------------
 
@@ -238,16 +183,12 @@ CREATE TABLE `role_user` (
 --
 
 INSERT INTO `role_user` (`role_id`, `user_id`, `user_type`) VALUES
-(2, 1, 'App\\Models\\User'),
-(4, 2, 'App\\Models\\User'),
-(6, 3, 'App\\Models\\User'),
-(5, 4, 'App\\Models\\User'),
-(3, 5, 'App\\Models\\User'),
-(7, 6, 'App\\Models\\User'),
-(7, 7, 'App\\Models\\User'),
-(7, 8, 'App\\Models\\User'),
-(7, 9, 'App\\Models\\User'),
-(7, 10, 'App\\Models\\User');
+(1, 1, 'App\\Models\\User'),
+(2, 2, 'App\\Models\\User'),
+(2, 3, 'App\\Models\\User'),
+(2, 4, 'App\\Models\\User'),
+(2, 5, 'App\\Models\\User'),
+(2, 6, 'App\\Models\\User');
 
 -- --------------------------------------------------------
 
@@ -258,13 +199,9 @@ INSERT INTO `role_user` (`role_id`, `user_id`, `user_type`) VALUES
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mat_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `patient_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_user` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `laboratory` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `library` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bursar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `hostel` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `faculty` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -277,17 +214,13 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `mat_no`, `is_user`, `laboratory`, `library`, `bursar`, `hostel`, `faculty`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Library', '37', NULL, NULL, NULL, NULL, NULL, NULL, 'library@futa.edu.ng', NULL, '$2y$10$/J.D5.LWeer6/erlhbrKXOW/y1g9CgurlkFIiT.dGrkhll7O3eULW', '4coZlJBSh00XeVD1JluxSWX1nXoRuaVmJSmQPohAi73BTVoBaVVNzm4bY6Zw', '2022-09-03 22:24:19', '2022-09-03 22:24:19'),
-(2, 'Selma Cunningham', '47', NULL, NULL, NULL, NULL, NULL, NULL, 'bursar@futa.edu.ng', NULL, '$2y$10$YjjNEgYVIO38KsXU2fviJ.m8aZDiiIz2rWK/xvc2pmzUcQQ8SSlye', NULL, '2022-09-03 22:24:53', '2022-09-03 22:24:53'),
-(3, 'Laboratory', '13', NULL, NULL, NULL, NULL, NULL, NULL, 'laboratory@futa.edu.ng', NULL, '$2y$10$e72zgj6RyP2EDkoegWgq8u4ZvjT5YNTsO5BMgXaKTjeFHLJYKaPPC', NULL, '2022-09-03 22:26:12', '2022-09-03 22:26:12'),
-(4, 'Emery Jimenez', '69', NULL, NULL, NULL, NULL, NULL, NULL, 'faculty@futa.edu.ng', NULL, '$2y$10$HEY3mHmTGl5rr1W5J31YKON3/l8oIlE1oDDNjl3zahZ4OtZAWyd/G', NULL, '2022-09-03 22:29:09', '2022-09-03 22:29:09'),
-(5, 'Sean Cooley', '52', NULL, NULL, NULL, NULL, NULL, NULL, 'hostel@futa.edu.ng', NULL, '$2y$10$qeyfxvOHI/uSoGyRiEUweulbX544GWWDroBTXdflcPgFhqRK2dIaS', NULL, '2022-09-03 22:29:36', '2022-09-03 22:29:36'),
-(6, 'Bertha Romero', '57', 'false', 'approved', 'approved', 'approved', 'approved', 'approved', 'user@futa.edu.ng', NULL, '$2y$10$52t16WLD96KZ90x.rwyyu.qcLTqPKSG6rI2hu4govpPo22b379d.C', NULL, '2022-09-03 22:30:38', '2022-09-03 23:26:48'),
-(7, 'Ginger Conway', '65', 'false', NULL, NULL, NULL, NULL, NULL, 'gevomiliw@mailinator.com', NULL, '$2y$10$Qy/F5RrxACXAl9sA.4fmUOsHMLvVE9YGKJUoN14pI.rWBWt0IWTAu', NULL, '2022-09-03 23:03:30', '2022-09-03 23:03:30'),
-(8, 'Guinevere Frost', '46', 'false', NULL, NULL, NULL, NULL, NULL, 'xeca@mailinator.com', NULL, '$2y$10$QVZnYbMCoZJL0WvlaQwE7uq5U.tuT8dtm8/cLB25J2StIpHivx/bm', NULL, '2022-09-03 23:21:44', '2022-09-03 23:21:44'),
-(9, 'Cathleen Aguirre', '30', 'false', NULL, NULL, NULL, NULL, NULL, 'xylupub@mailinator.com', NULL, '$2y$10$5yEsl9knEpiZ3VZl4F9tGuowZw9zSV68Q9zBJdJHXB9VrjP8/yUTe', NULL, '2022-09-03 23:22:40', '2022-09-03 23:22:40'),
-(10, 'Bebi rubber', 'ift/16/0156', 'false', NULL, 'approved', NULL, NULL, 'approved', 'bebi@futa.edu.ng', NULL, '$2y$10$I9YQhq32VWgZbiQ0W5k0EeNlalLRlMP2ba/eJVYsyzAdjGWOkoJyu', NULL, '2022-09-04 12:07:02', '2022-09-04 12:13:02');
+INSERT INTO `users` (`id`, `name`, `patient_id`, `status`, `is_user`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Victoria Andrews', '98', NULL, 'false', 'admin@mailinator.com', NULL, '$2y$10$xlRjlmpVzvC9yH8Q73cRV.kHgThgG57pne8ST/GFyQh64f.JoLmJy', 'GFVqWvqJtrDgwYpTamIThw9nSONqw5g1nCzgr5mRjhpXjZqzivzQY6Ey4hOV', '2023-01-17 20:10:49', '2023-01-17 20:10:49'),
+(2, 'Irma Suarez', '73', NULL, 'false', 'user@mailinator.com', NULL, '$2y$10$/cLb8iIiq9JwINhAo.Hqu.eiA0p8Xh7XgjDMzwLTy76SfgtSfW74m', NULL, '2023-01-17 20:11:38', '2023-01-17 20:11:38'),
+(3, 'Quon Banks', '90', NULL, 'false', 'test@mailinator.com', NULL, '$2y$10$T5fOUmoqu.WWita0T7rfAeIGFiue7PR2QZF77p3B2jHoREBYE8yni', NULL, '2023-01-22 12:26:02', '2023-01-22 12:26:02'),
+(4, 'Cain Hale', '34', NULL, 'false', 'stanley@mailinator.com', NULL, '$2y$10$PsFvXLkBz5IAdBmfp8S93urXCJUtyYk2SuGszDzoXcnHrqd0c5dFW', NULL, '2023-01-23 08:23:31', '2023-01-23 08:23:31'),
+(5, 'Kylie Todd', '29', NULL, 'false', 'demouser@mailinator.com', NULL, '$2y$10$ICo61p7fxnAqCp7hFeAis.xgY32qVKFLik.CZKE4SkXZjtT/OOFHy', NULL, '2023-01-27 12:54:17', '2023-01-27 12:54:17'),
+(6, 'Lolly P', '232435', NULL, 'false', 'lolly@mymail.com', NULL, '$2y$10$0BrdyKaqrszYUNUDL.n1h.mg/s1OawLpj8OHDBQx6ZBoqfXPfw7ZK', NULL, '2023-01-30 10:56:54', '2023-01-30 10:56:54');
 
 --
 -- Indexes for dumped tables
@@ -380,13 +313,13 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
